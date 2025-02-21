@@ -16,6 +16,9 @@
         darkMode: 'class',
         theme: {
           extend: {
+            dropShadow: {
+              '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
+            },
             colors: {
               clifford: '#da373d',
             },
@@ -61,7 +64,7 @@
               class="grid grid-cols-3 gap-2 justify-items-center"
               id="project-container"
             >
-<!--               <div>
+              <!--               <div>
                 <div
                   class="relative border border-gray-400 rounded-lg w-16 h-16 flex items-center justify-center bg-gradient-to-r from-red-500 via-orange-400 to-yellow-300 overflow-hidden"
                 >
@@ -80,7 +83,7 @@
         </section>
 
         <section class="p-4 z-0 mt-2 md:h-full md:w-full">
-          <div class="p-6 bg-second-base rounded-lg md:min-h-full md:min-w-80">
+          <div class="relative p-6 bg-second-base rounded-lg md:min-h-full md:min-w-80">
             <div class="mb-4">
               <div class="flex justify-between">
                 <h1 class="font-semibold text-xl sm:text-2xl pb-1">
@@ -99,7 +102,7 @@
                     ></div>
                     <i
                       data-feather="plus-circle"
-                      class="ml-2 text-slate-600"
+                      class="ml-2 text-slate-500 hover:text-slate-800 cursor-pointer"
                     ></i>
                   </div>
                 </div>
@@ -109,17 +112,25 @@
               </p>
             </div>
             <div id="task-container">
+              <!-- ngide nambahin
+              max-h-80 overflow-auto
+              biar bisa scroll kalo over tasknya -->
               <div
                 class="flex justify-between items-center border-b-2 border-gray-400"
               >
                 <h1 class="font-bold text-base">Today</h1>
-                <i data-feather="more-horizontal" class="w-5 h-5"></i>
+                <i data-feather="more-horizontal" class="w-5 h-5 text-gray-500 hover:text-black cursor-pointer"></i>
               </div>
               <!-- <div class="mt-4 flex items-center">
                 <input type="checkbox" class="w-4 h-4 cursor-pointer">
                 <label class="ml-2 text-xs">Lorem ipsum dolor sit amet.</label>
                 <button class="bg-green-300 w-14 h-6.5 text-xs ml-auto p-1 rounded-xl flex items-center justify-center"></button>
               </div> -->
+            </div>
+            <div
+              class="bg-sky-500 hover:bg-sky-600 cursor-pointer rounded-xl p-2 flex items-center absolute bottom-3 right-3 opacity-100 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]"
+            >
+              <i data-feather="plus"></i>
             </div>
           </div>
         </section>

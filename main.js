@@ -4,7 +4,7 @@ const api_key = 'api_key='; */
 document.addEventListener('DOMContentLoaded', function () {
   addProject(6);
   assignGradients();
-  addTasks(2);
+  addTasks(7);
 });
 
 function addProject(projectCount) {
