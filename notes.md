@@ -1,0 +1,3 @@
+- kalo mode sidebar, ada viewport yang gakena. bagian user header, 
+  - row 46
+  - ```<div class="sm:pl-10 sm:w-[90%]">```
