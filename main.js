@@ -1,45 +1,123 @@
+/* import $ from 'jquery';
+const api_key = 'api_key='; */
+
 document.addEventListener('DOMContentLoaded', function () {
   addProject(6);
-  assignGradients(); // Call the function to assign specific gradients
-  addTasks(2); // Call the function to add 7 tasks
+  assignGradients();
+  addTasks(2);
 });
 
 function addProject(projectCount) {
   const projectsContainer = document.getElementById('project-container');
-  const projectText = ['Project 1', 'Project 2', 'Project 3', 'Project 4', 'Project 5', 'Project 6'];
+  const projectText = [
+    'Project 1',
+    'Project 2',
+    'Project 3',
+    'Project 4',
+    'Project 5',
+    'Project 6',
+  ];
 
   for (let i = 0; i < projectCount; i++) {
     const projectContainerText = document.createElement('p');
     const projectItemContainer = document.createElement('div');
     const projectItem = document.createElement('div');
     const projectItemText = document.createElement('span');
+    const projectItemDecoration1 = document.createElement('div');
+    const projectItemDecoration2 = document.createElement('div');
+
     const classProjectItem = [
+      'relative',
+      'border',
+      'border-gray-400',
       'rounded-lg',
-      'w-14',
-      'h-14',
-      'sm:w-20',
-      'sm:h-20',
+      'w-16',
+      'h-16',
       'flex',
       'items-center',
       'justify-center',
-      'project-gradient' // for adding project gradiend function
+      'bg-gradient-to-r',
+      'from-red-500',
+      'via-orange-400',
+      'to-yellow-300',
+      'overflow-hidden',
+      'project-gradient',
     ];
+
+    const classProjectDecoration = [
+      'absolute',
+      'w-16',
+      'h-16',
+      'border-14',
+      'border-white',
+      'opacity-20',
+    ];
+
     projectItem.classList.add(...classProjectItem);
 
-    projectItemText.textContent = i + 1;
-    projectItem.appendChild(projectItemText);
+    projectItemDecoration1.classList.add(
+      ...classProjectDecoration,
+      ...randomDecorationShape('top')
+    );
+    projectItemDecoration2.classList.add(
+      ...classProjectDecoration,
+      ...randomDecorationShape('bottom')
+    );
 
-    projectContainerText.classList.add('text-center', 'text-xs', 'pt-1', 'text-gray-400');
+    projectItemText.textContent = i + 1;
+    projectItem.append(
+      projectItemDecoration1,
+      projectItemDecoration2,
+      projectItemText
+    );
+
+    projectContainerText.classList.add(
+      'text-center',
+      'text-xs',
+      'pt-1',
+      'text-gray-400'
+    );
     projectContainerText.textContent = projectText[i];
 
     projectItemContainer.append(projectItem, projectContainerText);
-    
 
     projectsContainer.appendChild(projectItemContainer);
   }
+}
 
-  // Optionally call assignGradients here if you want to assign gradients immediately after adding projects
-  // assignGradients();
+function randomDecorationShape(direction) {
+  const choosenRandomNumber = randomNumber(6, 9);
+
+  if (direction == 'top') {
+    const topDecoration = [
+      `-top-${choosenRandomNumber}`,
+      `-left-${choosenRandomNumber}`,
+      randomRounded(),
+    ];
+    return topDecoration;
+  } else if (direction == 'bottom') {
+    const bottomDecoration = [
+      `-bottom-${choosenRandomNumber}`,
+      `-right-${choosenRandomNumber}`,
+      randomRounded(),
+    ];
+    return bottomDecoration;
+  }
+}
+
+function randomRounded() {
+  const random = randomNumber(1, 2);
+  if (random == 1) {
+    const rounded = [`rounded-lg`];
+    return rounded;
+  } else {
+    const rounded = [`rounded-full`];
+    return rounded;
+  }
+}
+
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function assignGradients() {
@@ -65,7 +143,7 @@ function addTasks(count) {
   const status = ['Done', 'Progress', 'Pending'];
 
   for (let i = 0; i < count; i++) {
-    const randomStatus = Math.floor(Math.random() * 3); // Generate a new random status for each task
+    const randomStatus = Math.floor(Math.random() * 3);
 
     const taskItemContainer = document.createElement('div');
     taskItemContainer.classList.add('mt-4', 'flex', 'items-center');
@@ -92,7 +170,6 @@ function addTasks(count) {
     );
     taskButton.innerText = status[randomStatus];
 
-    // Add color based on status
     if (status[randomStatus] === 'Done') {
       taskButton.classList.add('bg-green-300');
     } else if (status[randomStatus] === 'Progress') {
