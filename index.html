@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-base: #34067f;
+        --color-second-base: #ddeef6;
+        --color-third-base: #3a87a5;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <title>Gasken</title>
+  </head>
+
+  <body class="font-sans font- bg-gray-500">
+    <main class="h-full p-4 lg:h-screen lg:px-20">
+      <div
+        class="h-full w-full bg-base flex flex-col lg:flex-row rounded-md items-center"
+      >
+        <!-- First Section -->
+        <section class="text-white p-10 md:w-10/12">
+          <div class="pl-14 w-64">
+            <h1 class="font-semibold text-2xl pb-1">Hi vin!</h1>
+            <p class="text-xs pb-2 text-gray-400">Welcome back brow</p>
+            <div class="relative py-2 w-full">
+              <input
+                type="text"
+                placeholder="Search"
+                class="pl-8 p-2 rounded-md bg-purple-700 w-full focus:border-none"
+              />
+              <i class="absolute top-4 left-1 p-0.5" data-feather="search"></i>
+            </div>
+            <h2>Projects:</h2>
+          </div>
+          <div class="mt-2">
+            <div
+              class="grid grid-cols-3 gap-2 justify-items-center"
+              id="project-container"
+            >
+              <!-- <div>
+                <div
+                  class="border border-gray-400 rounded-lg w-16 h-16 flex items-center justify-center"
+                >
+                  <span>1</span>
+                </div>
+                <p class="text-center text-gray-400">tester</p>
+              </div> -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Second Section (Takes Remaining Space) -->
+        <section class="p-4 z-0">
+          <div class="p-6 bg-second-base rounded-lg">
+            <div class="mb-12">
+              <h1 class="font-semibold text-2xl pb-1">Cyber Punk</h1>
+              <p class="text-sm text-gray-600">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
+            </div>
+            <div id="task-container">
+              <div
+                class="flex justify-between items-center border-b-2 border-gray-400"
+              >
+                <h1 class="font-bold text-base">Today</h1>
+                <i data-feather="more-horizontal" class="w-5 h-5"></i>
+              </div>
+              <!-- <div class="mt-4 flex items-center">
+                <input type="checkbox" class="w-4 h-4 cursor-pointer">
+                <label class="ml-2 text-xs">Lorem ipsum dolor sit amet.</label>
+                <button class="bg-green-300 w-14 h-6.5 text-xs ml-auto p-1 rounded-xl flex items-center justify-center"></button>
+              </div> -->
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      feather.replace();
+    </script>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
