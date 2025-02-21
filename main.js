@@ -15,8 +15,8 @@ function addProject(projectCount) {
     const projectItemText = document.createElement('span');
     const classProjectItem = [
       'rounded-lg',
-      'w-16',
-      'h-16',
+      'w-14',
+      'h-14',
       'sm:w-20',
       'sm:h-20',
       'flex',
